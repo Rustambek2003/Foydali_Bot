@@ -57,7 +57,7 @@ def Android(update:Update, context:CallbackContext):
     reply_markup = keyboar
     )
 
-def Android_d(update:Update, context:CallbackContext):
+def And_dastur(update:Update, context:CallbackContext):
     bot = context.bot
     chat_id = update.message.chat.id
     keyboar = InlineKeyboardMarkup([
@@ -73,7 +73,20 @@ def Android_d(update:Update, context:CallbackContext):
     reply_markup = keyboar
     )
 
+def And_oyin(update:Update, context:CallbackContext):
+    bot = context.bot
+    chat_id = update.message.chat.id
+    keyboar = InlineKeyboardMarkup([
+        [InlineKeyboardButton(text="Pubg o'yini", callback_data='pubg')],
+        [InlineKeyboardButton(text='Boshqotirma',callback_data='boshqotirma'),InlineKeyboardButton(text='Sarguzasht',callback_data='Sarguzasht')],
+        [InlineKeyboardButton(text='Jangari', callback_data='jangari'),InlineKeyboardButton(text="Stol o'yinlari",callback_data='stol_o')],
+        [InlineKeyboardButton(text="Qo'rqinchili", callback_data='qorqinchli'), InlineKeyboardButton(text='Poyga', callback_data='poyga')]
+    ])
 
+    bot.sendMessage(chat_id=chat_id,
+    text = "Android o'yinlari bo'limi, xohlagancha dasturlarni yuklab oling",
+    reply_markup = keyboar
+    )
 
 def Kompyuter(update:Update, context:CallbackContext):
     bot = context.bot
@@ -97,7 +110,8 @@ updater.dispatcher.add_handler(MessageHandler(Filters.text('📊 Statistika'),St
 updater.dispatcher.add_handler(MessageHandler(Filters.text('📱 Smartfon uchun dasturlar'),Smarthone))
 updater.dispatcher.add_handler(MessageHandler(Filters.text('🖥 Kompyuter uchun dasturlar'),Kompyuter))
 updater.dispatcher.add_handler(MessageHandler(Filters.text('Android'), Android))
-updater.dispatcher.add_handler(MessageHandler(Filters.text('Android dasturlar'),Android_d))
+updater.dispatcher.add_handler(MessageHandler(Filters.text('Android dasturlar'),And_dastur))
+updater.dispatcher.add_handler(MessageHandler(Filters.text("Android o'yinlar"),And_oyin))
 # updater.dispatcher.add_handler(MessageHandler(Filters.text('IOS'),IOS))
 updater.start_polling()
 updater.idle()
